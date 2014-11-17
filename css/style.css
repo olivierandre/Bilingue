@@ -1,0 +1,178 @@
+@import "reset.css";
+
+/*************************************************/
+/*
+/*
+/*					Général
+/*
+/*
+/**************************************************/
+h1, h2, h3, h4, h5, h6,
+span, input, p, a, button, label, select,
+figcaption, textarea, ul, li, table {
+	font-family: Raleway, Calibry
+}
+
+h1, h2, h3, h4, h5, h6, select, a, button,
+#seePreview #seeTitre {
+	text-transform: uppercase;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+}
+
+input {
+	outline: none;
+}
+
+input[type=submit], button, a {
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+button, a {	
+	padding: 10px 30px;
+	border: 0;
+	color: white;
+}
+
+/*************************************************/
+/*
+/*
+/*					Accueil
+/*
+/*
+/**************************************************/
+#button, #afficheScore {
+	margin: 50px;
+	text-align: center;
+}
+
+#button a {
+	display: block;
+	transition: background-color .3s;
+}
+
+#createData {
+	background-color: rgba(52, 73, 94, 0.5);
+}
+
+#createData:hover {
+	background-color: rgba(52, 73, 94, 1);
+}
+
+#play {
+	margin-top: 10px;
+	background-color: rgba(26, 188, 156,  0.5)
+}
+
+#play:hover {
+	background-color: rgba(26, 188, 156, 1);
+}
+
+table {
+	width: 700px;
+}
+
+th {
+	text-align: center;
+	border: 1px solid black;
+	padding: 15px 30px;
+	background-color: rgb(236, 240, 241);
+}
+
+td {
+	border: 1px solid black;
+	padding: 15px 30px;
+}
+
+.pair {
+	background-color: rgba(220, 198, 224, 1.0);
+}
+
+.impair {
+	background-color: rgba(174, 168, 211, 1.0);
+}
+
+
+/*************************************************/
+/*
+/*
+/*					Create Data
+/*
+/*
+/**************************************************/
+#create, #playForm {
+	margin: 50px;
+}
+
+#formulaire {
+	opacity: 0;
+}
+
+#plus {
+	clear: both;
+	margin-top: 20px;
+	background-color: red;
+	font-size: 20px;
+}
+
+#info {
+	opacity: 0;
+	margin: 50px;
+	font-size: 30px;
+}
+
+#retour {
+	background-color: rgba(230, 126, 34, 0.5);
+	transition: background-color .3s;
+}
+
+#retour {
+	background-color: rgba(230, 126, 34, 1);
+}
+
+.english {
+	padding-bottom: 30px;
+	border-bottom: 2px solid red;
+}
+
+#createButton {
+	margin: auto;
+	margin: 50px 50px;
+}
+
+#score {
+	padding: 20px;
+	background: rgb(149, 165, 166);
+	width: 50px;
+	color: white;
+	font-size: 20px;
+}
+
+#lost {
+	float: right;
+	font-size: 30px;
+	opacity: 0;
+}
+
+.player {
+	margin: 50px;
+}
