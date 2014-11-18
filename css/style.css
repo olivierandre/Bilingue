@@ -111,6 +111,10 @@ td {
 	background-color: rgba(174, 168, 211, 1.0);
 }
 
+label {
+	margin-bottom: 5px;
+}
+
 
 /*************************************************/
 /*
@@ -159,6 +163,18 @@ td {
 	margin: 50px 50px;
 }
 
+
+/*************************************************/
+/*
+/*
+/*					Game
+/*
+/*
+/**************************************************/
+#start {
+	margin-top: 10px;
+}
+
 #score {
 	padding: 20px;
 	background: rgb(149, 165, 166);
@@ -168,11 +184,16 @@ td {
 }
 
 #lost {
-	float: right;
 	font-size: 30px;
 	opacity: 0;
 }
 
 .player {
-	margin: 50px;
+	margin: 50px 0;
+}
+
+.warning {
+	opacity: 0;
+	margin: 10px 0;
+	color: rgba(73, 147, 174, 1);
 }

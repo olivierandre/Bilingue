@@ -47,37 +47,50 @@ button = {
 
 	buttonStartGame: function() {
 		$('#start').on("click", function() {
-			$(this).animate({
-				opacity: 0
-			}).text("Nouvelle partie ?")
-			$('#player').attr("disabled", "disabled")
-			$("#formulaire").animate({
-				opacity: 1
-			});
-			ajax.getWord();
-			$("#score").text(0)
+			
 			player = $('#player').val();
 
-			if(player === "") {
-				player = "Joueur anonyme";
+			if(player.length) {
+				$(this).animate({
+					opacity: 0
+				}, function() {
+					$(this).text("Nouvelle partie ?")
+				})
+				
+				$('#player').attr("disabled", "disabled")
+				$("#hiddenPlayer").val(player)
+				$('#lost').animate({
+					opacity: 0
+				})
+
+				ajax.getWord();
+				$("#score").text(0)
+
+				$("#formulaire").animate({
+					opacity: 1
+				});
+			} else {
+				warning.affiche('.warning', "Le nom est obligatoire pour jouer !!!")
 			}
-			$("#hiddenPlayer").val(player)
 		})
 	}
 }
 
-compteur = {
-	init : function() {
-		_this = this;
-		_this.compteur = 0
-	},
+warning = {
+	affiche: function(classe, msg) {
+		obj = $(classe);
 
-	getCompteur: function() {
-		_this.compteur += 1
-		return _this.compteur
+		obj.text(msg).animate({
+			opacity: 1
+		}, function(){
+			setTimeout(function() {
+				obj.animate({
+					opacity: 0
+				})
+			}, 3000)
+		});
 	}
 }
-
 
 ajax = {
 	getWord: function() {

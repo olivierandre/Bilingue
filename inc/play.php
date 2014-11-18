@@ -7,6 +7,7 @@
 			
 				<label for="player">Nom du joueur</label>
 				<input type="text" class="form-control" id="player">
+				<p class="warning">Coucou</p>
 				<button type="button" id="start" class="btn btn-success">Start game</button>
 
 			</div>
@@ -19,7 +20,7 @@
 				<form role="form" method="POST" action="index.php?page=verifValid">	
 					<div class="form-group france">
 						<label for="french">Mot à traduire</label>
-						<input type="text" class="form-control" disabled id="frenchWord" >
+						<input type="text" class="form-control" disabled id="frenchWord">
 						<input type="hidden" class="form-control" name='frenchWord' id="hiddenFrenchWord" >
 						<input type="hidden" name="hiddenPlayer" id="hiddenPlayer">
 						<input type="hidden" name="hiddenScore" id="hiddenScore">
