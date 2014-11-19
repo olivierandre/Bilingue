@@ -1,6 +1,4 @@
-<?php
-	include("presentation/header.php");
-?>
+<?php include("presentation/header.php"); ?>
 <h1 id="info"></h1>
 <div class="container" id="create">
 	<div class="row">
@@ -31,10 +29,6 @@
 </div>
 <div id="createButton">
 	<a href="index.php?page=addFormCreate" id="plus"><span class="glyphicon glyphicon-plus"></span></a>
-	<a href="index.php" id="retour">Retour accueil</a>
+	<a href="index.php?page=home" id="retour">Retour accueil</a>
 </div>
-
-<?php
-	include("presentation/footer.php");
-?>
-
+<?php include("presentation/footer.php"); ?>

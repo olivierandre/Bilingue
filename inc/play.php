@@ -6,8 +6,8 @@
 			<div class="col-xs-6 player">
 			
 				<label for="player">Nom du joueur</label>
-				<input type="text" class="form-control" id="player">
-				<p class="warning">Coucou</p>
+				<input type="text" class="form-control" placeholder="Champ obligatoire">
+				<p class="warning">warning</p>
 				<button type="button" id="start" class="btn btn-success">Start game</button>
 
 			</div>
@@ -43,7 +43,7 @@
 
 	
 	<div id="createButton">
-		<a href="index.php" id="retour">Retour accueil</a>
+		<a href="index.php?page=home" id="retour">Retour accueil</a>
 	</div>
 
 

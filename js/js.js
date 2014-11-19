@@ -2,9 +2,25 @@ app = {
 
 	init: function() {
 		_this = this;
+		_this.compteur = parseInt($("#compteur").val());
 
 		button.init();
-		_this.compteur = parseInt($("#compteur").val());
+		focus.init();
+		
+
+	}
+}
+
+focus = {
+	init: function() {
+		this.focusPlayerName();
+	},
+
+	focusPlayerName: function() {
+		$('.player input[type=text]').on('focus', function() {
+			warning.stopafficheNameAbsent();
+			$(this).removeClass('absentName');
+		})
 	}
 }
 
@@ -48,16 +64,16 @@ button = {
 	buttonStartGame: function() {
 		$('#start').on("click", function() {
 			
-			player = $('#player').val();
+			player = $('.player input[type=text]');
 
-			if(player.length) {
+			if(player.val().length) {
 				$(this).animate({
 					opacity: 0
 				}, function() {
 					$(this).text("Nouvelle partie ?")
 				})
 				
-				$('#player').attr("disabled", "disabled")
+				player.attr("disabled", "disabled")
 				$("#hiddenPlayer").val(player)
 				$('#lost').animate({
 					opacity: 0
@@ -70,25 +86,64 @@ button = {
 					opacity: 1
 				});
 			} else {
-				warning.affiche('.warning', "Le nom est obligatoire pour jouer !!!")
+				player.addClass('absentName');
+				
+				warning.afficheNameAbsent('warning', "Le nom est obligatoire pour jouer !!!")
 			}
 		})
 	}
 }
 
 warning = {
-	affiche: function(classe, msg) {
-		obj = $(classe);
+	init: function() {
+		_this = this;
+		_this.obj = null;
+	},
 
-		obj.text(msg).animate({
+	afficheNameAbsent: function(classe, msg) {
+		_this.obj = $('.' + classe);
+
+		_this.obj.text(msg).animate({
 			opacity: 1
-		}, function(){
+		/*}, function() {
 			setTimeout(function() {
 				obj.animate({
 					opacity: 0
 				})
-			}, 3000)
+			}, 3000)*/
 		});
+	},
+
+	stopafficheNameAbsent: function() {
+		if(typeof(_this.obj) !== 'undefined') {
+			_this.obj.animate({
+				opacity: 0
+			})
+		}
+	}
+}
+
+lost = {
+	lost: function() {
+		this.pop = $("<div>", {
+			css: {
+				position: "fixed",
+				right: 0,
+				bottom: 0,
+				backgroundColor: "rgba(0,0,0,0.6)",
+				padding: 50,
+				opacity: 1,
+				zIndex: 999,
+				width: '50%',
+				height: '50%',
+				left: '25%',
+				top: '25%'
+			}
+		})
+
+		this.pop.append("<div class='perdu'><p>Perdu !!!!</p></div>")
+		$("body").append(this.pop)
+		return this.pop
 	}
 }
 
@@ -112,9 +167,16 @@ ajax = {
 				find = parseInt(html);
 
 				if(find === 0) {
-					$('#lost').animate({
+					lost = lost.lost()
+
+					setTimeout(function() {
+						lost.animate({
+							opacity: 0
+						}).remove()
+					}, 2000)
+					/*$('#lost').animate({
 						opacity: 1
-					})
+					})*/
 					$("#formulaire").animate({
 						opacity: 0
 					})
@@ -185,7 +247,6 @@ ajax = {
 		})
 	}
 }
-
 
 $(function() {
 	app.init();

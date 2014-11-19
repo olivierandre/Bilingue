@@ -1,4 +1,4 @@
-
+<?php include('Tool/DateTool.php'); ?>
 <div class="container">
 	<div class="row">
 		<div class='col-xs-3' id="button">
@@ -14,6 +14,7 @@
 						<th>Classement</th>
 						<th>Nom joueur</th>
 						<th>Score</th>
+						<th>Effectué le</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +34,7 @@
 						<td><?= $compteur?></td>
 						<td><?= $score['player'] ?></td>
 						<td><?= $score['score'] ?></td>
+						<td><?= \Tool\DateTool::dateFr($score['date_created']) ?></td>
 					</tr>
 				<?php endforeach ?>
 				</tbody>
